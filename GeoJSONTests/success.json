@@ -1,0 +1,103 @@
+{
+    "type": "FeatureCollection",
+    "totalFeatures": 2,
+    "features": [
+        {
+            "type": "Feature",
+            "id": "LTFR_P_TILLATEN.26604453",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        18.052655,
+                        59.327859
+                    ],
+                    [
+                        18.052567,
+                        59.327858
+                    ],
+                    [
+                        18.052566,
+                        59.327858
+                    ],
+                    [
+                        18.052139,
+                        59.327855
+                    ],
+                    [
+                        18.052135,
+                        59.327855
+                    ],
+                    [
+                        18.052035,
+                        59.327856
+                    ]
+                ]
+            },
+            "geometry_name": "GEOMETRY",
+            "properties": {
+                "FID": 26604453,
+                "FEATURE_OBJECT_ID": 14855354,
+                "FEATURE_VERSION_ID": 1,
+                "EXTENT_NO": 1,
+                "VALID_FROM": "2017-11-22T23:00:00Z",
+                "VEHICLE": "fordon",
+                "START_TIME": 600,
+                "END_TIME": 0,
+                "START_WEEKDAY": "fredag",
+                "CITATION": "0180 2017-08733",
+                "STREET_NAME": "Hantverkargatan",
+                "CITY_DISTRICT": "Kungsholmen",
+                "PARKING_DISTRICT": "Kungsholmen",
+                "OTHER_INFO": "Servicetid fredag 00:00-06:00",
+                "VF_PLATS_TYP": "P Avgift, boende",
+                "ADDRESS": "Hantverkargatan 3A - 2G",
+                "RDT_URL": "https://rdt.transportstyrelsen.se/rdt/AF06_View.aspx?BeslutsMyndighetKod=0180&BeslutadAr=2017&LopNr=08733"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "LTFR_P_TILLATEN.26615133",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        18.053092,
+                        59.327632
+                    ],
+                    [
+                        18.053195,
+                        59.327313
+                    ]
+                ]
+            },
+            "geometry_name": "GEOMETRY",
+            "properties": {
+                "FID": 26615133,
+                "FEATURE_OBJECT_ID": 14852034,
+                "FEATURE_VERSION_ID": 1,
+                "EXTENT_NO": 1,
+                "VALID_FROM": "2017-11-29T23:00:00Z",
+                "VEHICLE": "buss",
+                "START_TIME": 600,
+                "END_TIME": 0,
+                "START_WEEKDAY": "tisdag",
+                "CITATION": "0180 2017-08617",
+                "STREET_NAME": "Ragnar Östbergs Plan",
+                "CITY_DISTRICT": "Kungsholmen",
+                "PARKING_DISTRICT": "Kungsholmen",
+                "OTHER_INFO": "Servicetid tisdag 00:00-06:00",
+                "VF_METER": 36,
+                "VF_PLATS_TYP": "Reserverad p-plats buss",
+                "ADDRESS": "Ragnar Östbergs Plan 3",
+                "RDT_URL": "https://rdt.transportstyrelsen.se/rdt/AF06_View.aspx?BeslutsMyndighetKod=0180&BeslutadAr=2017&LopNr=08617"
+            }
+        }
+    ],
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:EPSG::4326"
+        }
+    }
+}

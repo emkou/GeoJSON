@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E06466222BEA733008B89B0 /* GeometryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E06466122BEA733008B89B0 /* GeometryFactory.swift */; };
+		7E2EB5ED22C8CEE400189270 /* BlurrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2EB5EC22C8CEE400189270 /* BlurrView.swift */; };
 		7E4D62EE229EFDE000008980 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D62ED229EFDE000008980 /* AppDelegate.swift */; };
-		7E4D62F0229EFDE000008980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D62EF229EFDE000008980 /* ViewController.swift */; };
 		7E4D62F3229EFDE000008980 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D62F1229EFDE000008980 /* Main.storyboard */; };
 		7E4D62F5229EFDE200008980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D62F4229EFDE200008980 /* Assets.xcassets */; };
 		7E4D62F8229EFDE200008980 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E4D62F6229EFDE200008980 /* LaunchScreen.storyboard */; };
 		7E4D6303229EFDE200008980 /* GeoJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D6302229EFDE200008980 /* GeoJSONTests.swift */; };
 		7E4D630E229EFDE200008980 /* GeoJSONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D630D229EFDE200008980 /* GeoJSONUITests.swift */; };
+		7E5177C8229FDEF300EC648A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5177C7229FDEF300EC648A /* Request.swift */; };
+		7E7D78F922AEF5E900C1F228 /* FeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D78F822AEF5E900C1F228 /* FeatureCollection.swift */; };
+		7E83280022CE69B700D3FC82 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8327FF22CE69B700D3FC82 /* RequestMock.swift */; };
+		7E83280222D1237500D3FC82 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280122D1237500D3FC82 /* success.json */; };
+		7E83280522D12C6600D3FC82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D62EF229EFDE000008980 /* ViewController.swift */; };
+		7E83280722D12D8F00D3FC82 /* success-nomodel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280622D12D8F00D3FC82 /* success-nomodel.json */; };
+		7E83280822D130FE00D3FC82 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280122D1237500D3FC82 /* success.json */; };
+		7E83280922D1310000D3FC82 /* success-nomodel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280622D12D8F00D3FC82 /* success-nomodel.json */; };
+		7EF091A022C298AC004D67DD /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF0919F22C298AC004D67DD /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E06466122BEA733008B89B0 /* GeometryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryFactory.swift; sourceTree = "<group>"; };
+		7E2EB5EC22C8CEE400189270 /* BlurrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurrView.swift; sourceTree = "<group>"; };
 		7E4D62EA229EFDE000008980 /* GeoJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4D62ED229EFDE000008980 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E4D62EF229EFDE000008980 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,12 @@
 		7E4D6309229EFDE200008980 /* GeoJSONUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoJSONUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4D630D229EFDE200008980 /* GeoJSONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONUITests.swift; sourceTree = "<group>"; };
 		7E4D630F229EFDE200008980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E5177C7229FDEF300EC648A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		7E7D78F822AEF5E900C1F228 /* FeatureCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollection.swift; sourceTree = "<group>"; };
+		7E8327FF22CE69B700D3FC82 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
+		7E83280122D1237500D3FC82 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		7E83280622D12D8F00D3FC82 /* success-nomodel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "success-nomodel.json"; sourceTree = "<group>"; };
+		7EF0919F22C298AC004D67DD /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +92,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E2EB5E822C8CC1500189270 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7EF0919F22C298AC004D67DD /* LocationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7E2EB5E922C8CC2100189270 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E2EB5EC22C8CEE400189270 /* BlurrView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7E4D62E1229EFDE000008980 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +131,10 @@
 		7E4D62EC229EFDE000008980 /* GeoJSON */ = {
 			isa = PBXGroup;
 			children = (
+				7E2EB5E922C8CC2100189270 /* Views */,
+				7E2EB5E822C8CC1500189270 /* Helpers */,
+				7E4D631C229F011A00008980 /* Geometry */,
+				7E4D631B229F009100008980 /* Networking */,
 				7E4D62ED229EFDE000008980 /* AppDelegate.swift */,
 				7E4D62EF229EFDE000008980 /* ViewController.swift */,
 				7E4D62F1229EFDE000008980 /* Main.storyboard */,
@@ -111,6 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				7E4D6302229EFDE200008980 /* GeoJSONTests.swift */,
+				7E8327FF22CE69B700D3FC82 /* RequestMock.swift */,
+				7E83280622D12D8F00D3FC82 /* success-nomodel.json */,
+				7E83280122D1237500D3FC82 /* success.json */,
 				7E4D6304229EFDE200008980 /* Info.plist */,
 			);
 			path = GeoJSONTests;
@@ -123,6 +164,31 @@
 				7E4D630F229EFDE200008980 /* Info.plist */,
 			);
 			path = GeoJSONUITests;
+			sourceTree = "<group>";
+		};
+		7E4D631B229F009100008980 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7E5177C7229FDEF300EC648A /* Request.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7E4D631C229F011A00008980 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				7E4D631D229F02A100008980 /* Models */,
+				7E06466122BEA733008B89B0 /* GeometryFactory.swift */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		7E4D631D229F02A100008980 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E7D78F822AEF5E900C1F228 /* FeatureCollection.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E4D62F8229EFDE200008980 /* LaunchScreen.storyboard in Resources */,
+				7E83280922D1310000D3FC82 /* success-nomodel.json in Resources */,
+				7E83280822D130FE00D3FC82 /* success.json in Resources */,
 				7E4D62F5229EFDE200008980 /* Assets.xcassets in Resources */,
 				7E4D62F3229EFDE000008980 /* Main.storyboard in Resources */,
 			);
@@ -239,6 +307,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E83280722D12D8F00D3FC82 /* success-nomodel.json in Resources */,
+				7E83280222D1237500D3FC82 /* success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +326,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E4D62F0229EFDE000008980 /* ViewController.swift in Sources */,
+				7E5177C8229FDEF300EC648A /* Request.swift in Sources */,
+				7EF091A022C298AC004D67DD /* LocationHelper.swift in Sources */,
+				7E2EB5ED22C8CEE400189270 /* BlurrView.swift in Sources */,
+				7E06466222BEA733008B89B0 /* GeometryFactory.swift in Sources */,
+				7E83280522D12C6600D3FC82 /* ViewController.swift in Sources */,
+				7E7D78F922AEF5E900C1F228 /* FeatureCollection.swift in Sources */,
 				7E4D62EE229EFDE000008980 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E4D6303229EFDE200008980 /* GeoJSONTests.swift in Sources */,
+				7E83280022CE69B700D3FC82 /* RequestMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
