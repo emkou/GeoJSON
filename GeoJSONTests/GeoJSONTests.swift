@@ -19,7 +19,7 @@ class GeoJSONTests: XCTestCase {
         
     }
 
-    func testSuccessResponseWithGeoFactory() {
+    func testSuccessResponseWithDecodedObjects() {
      
         let ex = expectation(description: "Expecting posts generated")
         let request = GeometryFactory(request: MockSuccessRequest())
@@ -31,62 +31,84 @@ class GeoJSONTests: XCTestCase {
             XCTFail("error")
         }
         
-        waitForExpectations(timeout: 10) { error in
+        waitForExpectations(timeout: 2) { error in
+            if let error = error {
+                XCTFail("error: \(error)")
+            }
+        }
+    }
+
+    func testSuccessResponseWithNoValidGeometries() {
+        
+        let ex = expectation(description: "Expecting no posts were generated")
+        let request = GeometryFactory(request: MockSuccessRequestWithIncompatibleModel())
+        request.request(with: routes.areasInRadius(latitude: 0, longitude: 0), success: { (collection) in
+            XCTFail("error")
+        }) { (code) in
+            XCTAssertEqual(code, "Could not map geometry objects")
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2) { error in
             if let error = error {
                 XCTFail("error: \(error)")
             }
         }
     }
     
+    func testFailedResponseShouldReturnRequestErrorString() {
+        let ex = expectation(description: "Expecting return of error")
+        let request = GeometryFactory(request: MockFailure())
+        request.request(with: routes.areasInRadius(latitude: 0, longitude: 0), success: { (collection) in
+            XCTFail("error")
+        }) { (code) in
+            XCTAssertEqual(code, "Request error")
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2) { error in
+            if let error = error {
+                XCTFail("error: \(error)")
+            }
+        }
+    }
     
-//    func testSuccessResponseWithGeoFeeeactory() {
-//
-//        let session = URLSessionMock()
-//        session.data = nil
-//        session.error = nil
-//        let ex = expectation(description: "Expecting posts generated")
-//        let req = Request(with: session)
-//        req.request(url: "", method: .get, success: { (response) in
-//            XCTFail("error")
-//        }) { (code) in
-//            XCTAssertNil(code)
-//        }
-//
-//        waitForExpectations(timeout: 10) { error in
-//            if let error = error {
-//                XCTFail("error: \(error)")
-//            }
-//        }
-//    }
+    func testSuccessResponseWithRequestMaker() {
+        let ex = expectation(description: "Expecting request was successful")
+        let session = RequestSuccessMock()
+        let req = Request(with: session)
+        
+        req.request(url: "", method: .get, success: { (data) in
+            XCTAssertNotNil(data)
+            ex.fulfill()
+        }) { (_) in
+            XCTFail("error")
+        }
 
-}
-
-class URLSessionDataTaskMock: URLSessionDataTask {
-    private let closure: () -> Void
-    init(closure: @escaping () -> Void) {
-        self.closure = closure
+        waitForExpectations(timeout: 2) { error in
+            if let error = error {
+                XCTFail("error: \(error)")
+            }
+        }
     }
-    // We override the 'resume' method and simply call our closure
-    // instead of actually resuming any task.
-    override func resume() {
-        closure()
-    }
-}
+    
+    func testFailedResponseWithRequestMaker() {
+        let ex = expectation(description: "Expecting request failed")
+        let session = RequestFailureMock()
+        let req = Request(with: session)
+        
+        req.request(url: "", method: .get, success: { (data) in
 
-class URLSessionMock: URLSession {
-    typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-    // Properties that enable us to set exactly what data or error
-    // we want our mocked URLSession to return for any request.
-    var data: Data?
-    var error: Error?
-    override func dataTask(
-        with url: URL,
-        completionHandler: @escaping CompletionHandler
-        ) -> URLSessionDataTask {
-        let data = self.data
-        let error = self.error
-        return URLSessionDataTaskMock {
-            completionHandler(data, nil, error)
+            XCTFail("error")
+        }) { (status) in
+            XCTAssertEqual(status.description, "Server error")
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2) { error in
+            if let error = error {
+                XCTFail("error: \(error)")
+            }
         }
     }
 }

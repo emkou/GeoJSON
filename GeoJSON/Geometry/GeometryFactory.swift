@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 private let sthlmTraficBase: String = "https://openparking.stockholm.se/LTF-Tolken/"
-private let sthlmTraficKey: String = ""
+private let sthlmTraficKey: String = "f9cbaa1a-7ee8-4fb6-93b9-2703c89532dc"
 
 enum routes {
     case areasInRadius(latitude: Double, longitude: Double)
@@ -30,26 +30,23 @@ class GeometryFactory {
         self.request = request
     }
     
-    func request(with url: routes,  success: @escaping (FeatureCollection) -> Void, failure: @escaping (Int?) -> Void) {
+    func request(with url: routes,  success: @escaping (FeatureCollection) -> Void, failure: @escaping (String) -> Void) {
         request.request(url: url.path, method: .get, success: { (response) in
-            
-            guard let data = response?.data else {
-                failure(nil)
-                return
-            }
 
             do {
                 let decoder = JSONDecoder()
-                let collection = try decoder.decode(FeatureCollection.self, from: data)
+                let collection = try decoder.decode(FeatureCollection.self, from: response)
 
                 DispatchQueue.main.async {
                     success(collection)
                 }
             } catch {
-                print("Decoding", error)
+                print("Decoding", error.localizedDescription)
+                failure("Could not map geometry objects")
             }
         }, failure: { (response) in
-            failure(response?.statusCode)
+            failure(response.description)
         })
+        
     }
 }

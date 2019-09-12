@@ -17,12 +17,13 @@
 		7E4D630E229EFDE200008980 /* GeoJSONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D630D229EFDE200008980 /* GeoJSONUITests.swift */; };
 		7E5177C8229FDEF300EC648A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5177C7229FDEF300EC648A /* Request.swift */; };
 		7E7D78F922AEF5E900C1F228 /* FeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D78F822AEF5E900C1F228 /* FeatureCollection.swift */; };
-		7E83280022CE69B700D3FC82 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8327FF22CE69B700D3FC82 /* RequestMock.swift */; };
+		7E83280022CE69B700D3FC82 /* GeometryFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8327FF22CE69B700D3FC82 /* GeometryFactoryMock.swift */; };
 		7E83280222D1237500D3FC82 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280122D1237500D3FC82 /* success.json */; };
 		7E83280522D12C6600D3FC82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D62EF229EFDE000008980 /* ViewController.swift */; };
 		7E83280722D12D8F00D3FC82 /* success-nomodel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280622D12D8F00D3FC82 /* success-nomodel.json */; };
 		7E83280822D130FE00D3FC82 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280122D1237500D3FC82 /* success.json */; };
 		7E83280922D1310000D3FC82 /* success-nomodel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E83280622D12D8F00D3FC82 /* success-nomodel.json */; };
+		7E8DB807232AC0CC00D720E5 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8DB806232AC0CC00D720E5 /* RequestMock.swift */; };
 		7EF091A022C298AC004D67DD /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF0919F22C298AC004D67DD /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,9 +62,10 @@
 		7E4D630F229EFDE200008980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E5177C7229FDEF300EC648A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		7E7D78F822AEF5E900C1F228 /* FeatureCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCollection.swift; sourceTree = "<group>"; };
-		7E8327FF22CE69B700D3FC82 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
+		7E8327FF22CE69B700D3FC82 /* GeometryFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryFactoryMock.swift; sourceTree = "<group>"; };
 		7E83280122D1237500D3FC82 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		7E83280622D12D8F00D3FC82 /* success-nomodel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "success-nomodel.json"; sourceTree = "<group>"; };
+		7E8DB806232AC0CC00D720E5 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		7EF0919F22C298AC004D67DD /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				7E4D6302229EFDE200008980 /* GeoJSONTests.swift */,
-				7E8327FF22CE69B700D3FC82 /* RequestMock.swift */,
+				7E8327FF22CE69B700D3FC82 /* GeometryFactoryMock.swift */,
+				7E8DB806232AC0CC00D720E5 /* RequestMock.swift */,
 				7E83280622D12D8F00D3FC82 /* success-nomodel.json */,
 				7E83280122D1237500D3FC82 /* success.json */,
 				7E4D6304229EFDE200008980 /* Info.plist */,
@@ -341,7 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E4D6303229EFDE200008980 /* GeoJSONTests.swift in Sources */,
-				7E83280022CE69B700D3FC82 /* RequestMock.swift in Sources */,
+				7E8DB807232AC0CC00D720E5 /* RequestMock.swift in Sources */,
+				7E83280022CE69B700D3FC82 /* GeometryFactoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

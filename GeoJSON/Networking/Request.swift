@@ -12,51 +12,113 @@ enum method {
     case get
 }
 
-protocol ResponseProtocol {
-    var data: Data? { get }
-    var statusCode: Int { get  }
-}
-
-struct Response: ResponseProtocol {
-    let data: Data?
-    let statusCode: Int
+enum HttpStatus: Error {
+    case ok
+    case badRequest
+    case unauthorized
+    case forbidden
+    case notFound
+    case internalError
+    case unknown
+    
+    init(with code: Int) {
+        switch code {
+        case 200...204: self = .ok
+        case 400: self = .badRequest
+        case 401: self = .unauthorized
+        case 403: self = .forbidden
+        case 404: self = .notFound
+        case 500...510: self = .internalError
+        default: self = .unknown
+        }
+    }
+    
+    var description: String {
+        var descr = ""
+        switch self {
+        case .ok:
+            descr = "OK 200"
+        case .badRequest:
+            descr = "The server could not understand the request due to invalid request syntax"
+        case .unauthorized:
+            descr = "Authenticate needed in order to get the requested response"
+        case .forbidden:
+            descr = "No access rights to access this resource"
+        case .notFound:
+            descr = "The requested resource is not found"
+        case .internalError:
+            descr = "Server error"
+        case .unknown:
+            descr = "Request error"
+        }
+        
+       return descr
+    }
 }
 
 protocol RequestProtocol {
-    func request(url: String, method: method, success: @escaping (Response?) -> Void, failure: @escaping (Response?) -> Void)
+    func request(url: String, method: method, success: @escaping (Data) -> Void, failure: @escaping (HttpStatus) -> Void)
 }
 
+//TODO: include POST handling
 class Request: RequestProtocol {
     
-    private let defaultSession: URLSession!
-    private var dataTask: URLSessionDataTask?
+    private let session: RequestSession!
     
-    init(with session: URLSession = URLSession(configuration: .default) ) {
-        self.defaultSession = session
+    init(with session: RequestSession = URLSession(configuration: .default) ) {
+        self.session = session
     }
     
-    func request(url: String, method: method, success: @escaping (Response?) -> Void, failure: @escaping (Response?) -> Void) {
-        dataTask?.cancel()
+    
+    func request(url: String, method: method, success: @escaping (Data) -> Void, failure: @escaping (HttpStatus) -> Void) {
+       
         if var urlComponents = URLComponents(string: url) {
             //urlComponents.query = "if we need a query param for particular geometry group"
-            guard let url = urlComponents.url else { return }
-            dataTask = defaultSession.dataTask(with: url) { data, response, error in
-                defer { self.dataTask = nil }
-                guard let urlResponse = response as? HTTPURLResponse else {
-                    failure(nil)
-                    return
-                }
+            guard let url = urlComponents.url else {
                 
-                switch urlResponse.statusCode {
-                case 200...300:
-                    success(Response(data: data, statusCode: urlResponse.statusCode))
-                default:
-                    failure(Response(data: data, statusCode: urlResponse.statusCode))
+                return
+                
+            }
+
+           session.request(with: url) { (result) in
+                switch result {
+                case .success(let data):
+                    success(data)
+                    break
+                case .failure(let error):
+                    failure(error)
+                    break
                 }
+            
             }
             
-            dataTask?.resume()
-            
         }
+        
+    }
+}
+
+protocol RequestSession {
+    func request(with url: URL, result: @escaping (Result<(Data), HttpStatus>) -> Void)
+}
+
+extension URLSession: RequestSession {
+
+    func request(with url: URL, result: @escaping (Result<(Data), HttpStatus>) -> Void) {
+        
+        let task = dataTask(with: url) { (data, response, error) in
+            guard error == nil, let response = response as? HTTPURLResponse, let data = data else {
+                result(.failure(HttpStatus(with: 0)))
+                return
+            }
+            
+            switch response.statusCode {
+            case 200...204:
+                result(.success(data))
+            default:
+                result(.failure(HttpStatus(with: response.statusCode)))
+            }
+        }
+        
+        task.resume()
     }
 }

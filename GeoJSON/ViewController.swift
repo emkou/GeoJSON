@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var mapView: MKMapView!
     private let locationHelper = LocationHelper()
     private let geometryFactory = GeometryFactory()
-    
+    private let blurredView = BlurrView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,19 +27,17 @@ class ViewController: UIViewController {
         
         mapView.showsUserLocation = true
         mapView.delegate = self
-
+        blurredView.addToView(view: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let blurr = BlurrView(in: self.view)
-        
         locationHelper.track(completionCall: { [weak self] (location) in
             self?.showOnMap(location: location)
-            blurr.hide()
-        }) { (error) in
-            blurr.showError(error: error)
+            self?.blurredView.hide()
+        }) {  [weak self] (error) in
+            self?.blurredView.showError(error: error)
         }
     }
     

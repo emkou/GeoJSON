@@ -9,7 +9,18 @@
 import UIKit
 
 class BlurrView: UIView {
-    let button = UIButton(frame: .zero)
+    
+    let button: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
+        button.setTitleColor(.blue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 8
+        button.isHidden = true
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,28 +30,12 @@ class BlurrView: UIView {
         super.init(coder: aDecoder)
     }
     
-    convenience init(in view: UIView) {
+    convenience init() {
         self.init(frame: CGRect.zero)
         translatesAutoresizingMaskIntoConstraints  = false
-        
-        //blur viea
-        let blurEffect = UIBlurEffect(style: .extraLight)
-        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        blurredEffectView.frame = view.bounds
-        addSubview(blurredEffectView)
-        
+    
         //button
-        button.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
-        button.setTitleColor(.blue, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.borderColor = UIColor.gray.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 8
-        button.isHidden = true
         addSubview(button)
-        
-        //superview
-        view.addSubview(self)
         
         //CONSTRAINTS
         //button
@@ -48,6 +43,19 @@ class BlurrView: UIView {
         button.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         button.widthAnchor.constraint(equalToConstant: 300).isActive = true
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    func addToView(view: UIView) {
+        //blur viea
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = view.bounds
+        addSubview(blurredEffectView)
+        
+        //superview
+        view.addSubview(self)
+        
+        //CONSTRAINTS
         
         //self
         self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
