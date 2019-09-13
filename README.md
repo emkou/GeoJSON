@@ -1,6 +1,6 @@
 # GeoJSON example :iphone: app 
 
-##Presenting parking data 
+## Presenting parking data (allowed parking spaces in Stockoholm withing user's location)
 The project and its content is used as a presentation on using Swift, Codable, MapKit and URLSession to deserialize and display [GeoJSON](https://geojson.org//). primitives. 
 
 The data is fetched from [Stockholm Traffic Office's open data](https://openparking.stockholm.se/).
