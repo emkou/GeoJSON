@@ -8,8 +8,8 @@ The data is fetched from [Stockholm Traffic Office's open data](https://openpark
 The goal of the project is to demonstrate the ease of avoiding heavy external dependencies
 when working with these GeoJSON geomentry types
 
-Todo:
+##Todo:
 - add more geometries 
 
-Next:
+##Next:
 - Separate in dynamic framework 
