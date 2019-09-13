@@ -47,9 +47,9 @@ class ViewController: UIViewController {
         }
         
         geometryFactory.request(with: .areasInRadius(latitude: latestLocation.coordinate.latitude, longitude: latestLocation.coordinate.longitude), success: { [weak self] (collection) in
-            for feature in collection.features {
+            collection.features.forEach({ (feature) in
                 self?.mapView.addOverlay(feature.mapKitGeometry)
-            }
+            })
         }) { (code) in
             print("code")
         }
