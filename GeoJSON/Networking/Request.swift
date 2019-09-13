@@ -74,11 +74,7 @@ class Request: RequestProtocol {
        
         if var urlComponents = URLComponents(string: url) {
             //urlComponents.query = "if we need a query param for particular geometry group"
-            guard let url = urlComponents.url else {
-                
-                return
-                
-            }
+            guard let url = urlComponents.url else { return }
 
            session.request(with: url) { (result) in
                 switch result {
@@ -91,9 +87,7 @@ class Request: RequestProtocol {
                 }
             
             }
-            
         }
-        
     }
 }
 

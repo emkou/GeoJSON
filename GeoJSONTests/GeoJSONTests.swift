@@ -19,7 +19,7 @@ class GeoJSONTests: XCTestCase {
         
     }
 
-    func testSuccessResponseWithDecodedObjects() {
+    func testSuccessResponseWithGeojsonObjects() {
      
         let ex = expectation(description: "Expecting posts generated")
         let request = GeometryFactory(request: MockSuccessRequest())
@@ -38,7 +38,7 @@ class GeoJSONTests: XCTestCase {
         }
     }
 
-    func testSuccessResponseWithNoValidGeometries() {
+    func testSuccessResponseWithNoValidGeojsonObjects() {
         
         let ex = expectation(description: "Expecting no posts were generated")
         let request = GeometryFactory(request: MockSuccessRequestWithIncompatibleModel())
